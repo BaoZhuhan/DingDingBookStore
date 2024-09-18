@@ -1,4 +1,5 @@
 # DingDingBookStore
+This website is a project I completed in my second year, during the B/S architecture application development course. It also serves as an example website for the course. The source code of this website was referenced from the book ['HTML5 + CSS3 + ES6 Front-end Development Project Practice'](http://www.tup.tsinghua.edu.cn/bookscenter/book_09381201.html), authored by Mr. Shumin Zhang.
 
 ## Time Line
 
