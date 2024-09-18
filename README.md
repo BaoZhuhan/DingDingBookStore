@@ -12,5 +12,6 @@
 ### Version 3.8.1
 1. Design the top-level structure of a web page 20240918
 2. Design the Hierarchial Structure of web page 20240918
-    1. Design header 20240918
-    2. Desigh main content 20240918
+    1. Design the header structure 20240918
+    2. Design the main content structure 20240918
+    3. Design the footer structure 20240918
