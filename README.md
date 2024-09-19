@@ -23,7 +23,7 @@ The source code of this website was referenced from the book
     2. Design the main content structure.
     3. Design the footer structure.
 
-*2024.09.19
+*2024.09.19*
 
 ### Version 3.8.2
 1. Add text to the content structure.
