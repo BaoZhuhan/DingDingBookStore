@@ -20,3 +20,8 @@ The source code of this website was referenced from the book
     1. Design the header structure 20240918
     2. Design the main content structure 20240918
     3. Design the footer structure 20240918
+
+### Version 3.8.2
+1. Add text to the content structure 20240919
+    1. Design the header 20240919
+    

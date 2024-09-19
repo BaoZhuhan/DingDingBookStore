@@ -22,7 +22,30 @@
                 <!-- 站内搜索 -->
                 <div id="search"></div>
                 <!-- 购物车 -->
-                <div id="cart"></div>
+                <div id="cart">
+                    <ul>
+                        <li id="cart-position">
+                            <!-- 购物车图标 -->
+                            <span class="icon-cart"></span><sup>2</sup>
+                            <!-- 购物车下拉菜单 -->
+                            <ul id="dropdown-cart">
+                                <li>
+                                    <div class="cart-thumb"></div>
+                                    <div class="cart-tittle">
+                                        Spring Boot开发实战<br><span>29.90 x 1</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="cart-thumb"></div>
+                                    <div class="cart-tittle">
+                                        Kubernetes权威指南<br><span>84.60 x 1</span>
+                                    </div>
+                                </li>
+                                <li id="btn-cart">去购物车</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </header>
         </div>
         <nav class="center">
