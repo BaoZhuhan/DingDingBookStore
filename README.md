@@ -43,5 +43,7 @@ The source code of this website was referenced from the book
         * weekly recommend.
         * nowaday new books.
         * nowaday on sale.
-        *
+        * best selling.
+    5. partners.
+        * 
     
