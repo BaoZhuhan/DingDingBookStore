@@ -31,4 +31,9 @@ The source code of this website was referenced from the book
         * Design shopping cart.
         * Design shopping cart drop-down menu.
 
+*2024.09.20*
+
+1. Add text to the content structure.
+    2. Design the navigation menu.
+
     
