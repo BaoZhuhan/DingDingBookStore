@@ -50,4 +50,4 @@ The source code of this website was referenced from the book
         * shopping guide
         * sending way
         * payment way
-    
+    6. copyright
