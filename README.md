@@ -39,4 +39,9 @@ The source code of this website was referenced from the book
         * book classification
         * users
         * news
+    4. fill the main content.
+        * weekly recommend.
+        * nowaday new books.
+        * nowaday on sale.
+        
     
