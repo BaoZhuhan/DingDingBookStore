@@ -44,6 +44,10 @@ The source code of this website was referenced from the book
         * nowaday new books.
         * nowaday on sale.
         * best selling.
-    5. partners.
-        * 
+        * partners.
+        * about
+    5. footer
+        * shopping guide
+        * sending way
+        * payment way
     
