@@ -15,10 +15,3 @@ The source code of this website was referenced from the book
 ### Version 2.5
 1. update"index.html" : add head information.
 2. update"favicon.ico".
-
-### Version 3.8.1
-1. Design the top-level structure of a web page.
-2. Design the Hierarchial Structure of web page.
-    1. Design the header structure.
-    2. Design the main content structure.
-    3. Design the footer structure.
