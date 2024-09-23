@@ -28,26 +28,26 @@ The source code of this website was referenced from the book
 ### Version 3.8.2
 1. Add text to the content structure.
     1. Design the header.
-        * Design shopping cart.
-        * Design shopping cart drop-down menu.
+        1. Design shopping cart.
+        2. Design shopping cart drop-down menu.
 
 *2024.09.20*
 
 1. Add text to the content structure.
     2. Design the navigation menu.
     3. Design the header of content
-        * book classification
-        * users
-        * news
+        1. book classification
+        2. users
+        3. news
     4. fill the main content.
-        * weekly recommend.
-        * nowaday new books.
-        * nowaday on sale.
-        * best selling.
-        * partners.
-        * about
+        1. weekly recommend.
+        2. nowaday new books.
+        3. nowaday on sale.
+        4. best selling.
+        5. partners.
+        6. about
     5. footer
-        * shopping guide
-        * sending way
-        * payment way
+        7. shopping guide
+        8. sending way
+        9. payment way
     6. copyright
