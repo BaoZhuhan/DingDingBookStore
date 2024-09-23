@@ -11,3 +11,7 @@ The source code of this website was referenced from the book
 
 ### Version 2.2
 1. init index.html.
+
+### Version 2.5
+1. update"index.html" : add head information 2024.09.18
+2. update"favicon.ico" 2024.09.18
