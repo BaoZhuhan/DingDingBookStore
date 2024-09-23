@@ -23,17 +23,13 @@ The source code of this website was referenced from the book
     2. Design the main content structure.
     3. Design the footer structure.
 
-*2024.09.19*
+*2024.09.19* - *2024.09.20*
 
 ### Version 3.8.2
 1. Add text to the content structure.
     1. Design the header.
         1. Design shopping cart.
         2. Design shopping cart drop-down menu.
-
-*2024.09.20*
-
-1. Add text to the content structure.
     2. Design the navigation menu.
     3. Design the header of content
         1. book classification
