@@ -1,16 +1,139 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>叮叮书店</title>
-    <meta name="keywords" content="网上书店,计算机,前端技术">
-    <meta name="description" content="叮叮书店是销售信息技术及相关图书的垂直网站">
-    <meta name="robots" content="index,follow">
-    <link rel="icon" href="images/favicon.ico">
-</head>
-<body>
-    
-</body>
+    <meta name="keywords" content="网上书店,计算机,前端技术" />
+    <meta
+      name="description"
+      content="叮叮书店是销售信息技术及相关图书的垂直网站"
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="icon" href="images/favicon.ico" />
+  </head>
+  <body>
+    <!-- 顶部广告 -->
+    <div id="top-advert" class="center"></div>
+    <div id="sticky">
+      
+      <div id="top" class="full-width">
+        <!-- 页眉 -->
+        <header id="page-top" class="center">
+          <!-- 网站logo -->
+          <div id="logo"></div>
+          <!-- 站内搜索 -->
+          <div id="search"></div>
+          <!-- 购物车 -->
+          <div id="cart"></div>
+        </header>
+      </div>
+      <nav class="center"></nav>
+      
+        <div id="top" class="full-width">
+            <!-- 页眉 -->
+            <header id="page-top" class="center">
+                <!-- 网站logo -->
+                <div id="logo"></div>
+                <!-- 站内搜索 -->
+                <div id="search"></div>
+                <!-- 购物车 -->
+                <div id="cart">
+                    <ul>
+                        <li id="cart-position">
+                            <!-- 购物车图标 -->
+                            <span class="icon-cart"></span><sup>2</sup>
+                            <!-- 购物车下拉菜单 -->
+                            <ul id="dropdown-cart">
+                                <li>
+                                    <div class="cart-thumb"></div>
+                                    <div class="cart-tittle">
+                                        Spring Boot开发实战<br><span>29.90 x 1</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="cart-thumb"></div>
+                                    <div class="cart-tittle">
+                                        Kubernetes权威指南<br><span>84.60 x 1</span>
+                                    </div>
+                                </li>
+                                <li id="btn-cart">去购物车</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+        </div>
+        <nav class="center">
+            
+            <!-- 头部分层结构 -->
+            <header id="main-conten-top">
+                <section id="classify"></section>
+                <div id="banner"></div>
+                <div id="user-news">
+                    <section id="users"></section>
+                    <section id="news"></section>
+                </div>
+            </header>
+            <div id="main-content">
+                <!-- 主要分层结构 -->
+                <!-- 左边内容 -->
+                <div id="main-content-left">
+                    <section id="recommend-book"></section>
+                    <section id="new-book"></section>
+                    <section id="sales-books"></section>
+                </div>
+                <!-- 右边边栏 -->
+                 <aside>
+                    <section id="best-selling"></section>
+                    <section id="partner"></section>
+                    <section id="about"></section>
+                 </aside>
+            </div>
+        </nav>
+    </div>
+    <!-- 内容 -->
+    <main class="center">
+      <!-- 头部分层结构 -->
+      <header id="main-conten-top">
+        <section id="classify"></section>
+        <div id="banner"></div>
+        <div id="user-news">
+          <section id="users"></section>
+          <section id="news"></section>
+        </div>
+      </header>
+      <div id="main-content">
+        <!-- 主要分层结构 -->
+        <!-- 左边内容 -->
+        <div id="main-content-left">
+          <section id="recommend-book"></section>
+          <section id="new-book"></section>
+          <section id="sales-books"></section>
+        </div>
+        <!-- 右边边栏 -->
+        <aside>
+          <section id="best-selling"></section>
+          <section id="partner"></section>
+          <section id="about"></section>
+        </aside>
+      </div>
+    </main>
+    <div class="full-width">
+      <!-- 页脚 -->
+      <footer class="center">
+        <!-- 购物指南 -->
+        <div class="col"></div>
+        <!-- 配送方式 -->
+        <div class="col"></div>
+        <!-- 支付方式 -->
+        <div class="col"></div>
+        <!-- 售后服务 -->
+        <div class="col"></div>
+      </footer>
+    </div>
+    <!-- 版权 -->
+    <div id="copyright" class="center"></div>
+  </body>
 </html>
