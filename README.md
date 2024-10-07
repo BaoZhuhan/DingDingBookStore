@@ -47,3 +47,21 @@ The source code of this website was referenced from the book
         2. sending way
         3. payment way
     6. copyright
+
+*2024.10.01* - *2024.10.07*
+### Version 5.5.5
+1. Create hyperlinks and images for the Index page of "DingDingBookStore"
+    1. Rebuild the top AD
+    2. Rebuild the logo
+    3. Rebuild the shopping cart
+    4. Rebuild the category
+    5. Rebuild the classification
+    6. Rebuild the banner AD
+    7. Rebuild the user news
+    8. Rebuild the weekly recommendation
+    9. Rebuild the newest, sales and curr
+    10. Rebuild the partners, about, footer and copyright;
+2. Add ebook.html
+    1. copy the index.html
+    2. del the center
+    3. Design the ebook.html with styles and scrpits
