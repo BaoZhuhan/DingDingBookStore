@@ -71,3 +71,5 @@ The source code of this website was referenced from the book
 ### version 6.4.0
 
 1. Add ``cart.html``.
+2. Add ``template.html`` and make ``template.html`` as user mod.
+ 
