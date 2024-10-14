@@ -66,10 +66,10 @@ The source code of this website was referenced from the book
     2. del the center
     3. Design the ebook.html with styles and scrpits
 
-*2024.10.09*
+*2024.10.09* - *2024.10.14*
 
 ### version 6.4.0
 
 1. Add ``cart.html``.
 2. Add ``template.html`` and make ``template.html`` as user mod.
- 
+3. Add ``contact1.html``
