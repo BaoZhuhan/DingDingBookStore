@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #555555;
+        }
+        #taiji {
+            width: 400px;
+            height: 400px;
+            margin: 100px auto;
+            position: relative;
+            border-radius: 400px;
+            box-shadow: 0 0 10px grey;
+            animation: rotate 5s linear infinite;
+        }
+        #taiji::before,#taiji::after {
+            content: "";
+            display: block;
+            width: 200px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+        }
+        #taiji::before{
+            left: 0;
+            background-color: black;
+            border-radius: 200px 0 0 200px;
+        }
+        #taiji::after {
+            left: 200px;
+            background-color: white;
+            border-radius: 0 200px 200px 0;
+        }
+        #yin,#yang {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            border-radius: 200px;
+            z-index: 10;
+        }
+        #yin{
+            left: 100px;
+            top: 0;
+            background-color: black;
+        }
+        #yang{
+            right: 100px;
+            bottom: 0;
+            background-color: white;
+        }
+        #yin::before,#yang::before {
+            content: "";
+            display: block;
+            width: 75px;
+            height: 75px;
+            position: absolute;
+            border-radius: 75px;
+            z-index: 20;
+        }
+        #yin::before{
+            left: 55px;
+            top: 60px;
+            background-color: white;           
+        }
+        #yang::before{
+            right: 55px;
+            bottom: 60px;
+            background-color: black;  
+        }
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="taiji">
+        <div id="yin">
+
+        </div>
+        <div id="yang">
+
+        </div>
+    </div>
+</body>
+</html>

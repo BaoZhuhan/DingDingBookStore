@@ -73,3 +73,8 @@ The source code of this website was referenced from the book
 1. Add ``cart.html``.
 2. Add ``template.html`` and make ``template.html`` as user mod.
 3. Add ``contact1.html``
+
+### version 6.5.0
+
+1. taiji
+2. category
