@@ -10,6 +10,342 @@
     <meta name="description" content="叮叮书店是销售信息技术及相关图书的垂直网站">
     <meta name="robots" content="index,follow">
     <link rel="icon" href="images/favicon.ico">
+    <style>
+        /* 公共 */
+        /* 清除所有元素默认的内、外边距。*/
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        /* 目前基于安卓的移动设备逻辑分辨率最小宽度为320px。margin: 0 auto将整个页面内容自动居中。*/
+        .center {
+            width: 100%;
+            max-width: 1280px;
+            min-width: 320px;
+            margin: 0 auto;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            border: 0px;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        /* 布局 */
+        /* 顶部广告 */
+        #top-advert a {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+        /* 页眉采用网格布局，网格模板区域定位，站内搜索占3列。 */
+        #page-top {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: 100px;
+            grid-template-areas: "lg sr sr sr cr";
+        }
+
+        /* logo网格项目内容居中。 */
+        #logo {
+            justify-self: center;
+            align-self: center;
+            grid-area: lg;
+        }
+
+        /* 站内搜索网格项目内容居中。 */
+        #search {
+            justify-self: center;
+            align-self: center;
+            grid-area: sr;
+        }
+
+        /* 购物车网格项目内容居中。 */
+        #cart {
+            align-self: center;
+            justify-self: center;
+            grid-area: cr;
+        }
+
+        /* 导航菜单 */
+        nav {
+            border-bottom: 1px solid hsl(0, 50%, 100%);
+            border-top: 1px solid hsl(0, 50%, 100%);
+        }
+
+        /* 内容顶部采用网格布局，网格线定位。 */
+        #main-content-top {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        /* 图书分类列表的子列表设为伸缩盒，按行显示。一般情况下内外边距理想的视觉距离是12px。 */
+        #classify {
+            padding: 12px 12px 0 12px;
+        }
+
+        #classify ul ul {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        #classify ul ul li {
+            margin: 2px;
+        }
+
+        /* 横幅广告占3列。 */
+        #banner {
+            grid-column-end: span 3;
+            margin: 0px 1px;
+        }
+
+        /* 用户部分设为伸缩盒，按列显示。 */
+        #user {
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            justify-content: space-evenly;
+            margin-bottom: 12px;
+        }
+
+        /* 主要内容设为伸缩盒，按行显示。 */
+        #main-content {
+            display: flex;
+            flex-flow: row wrap;
+            margin: 1px 0px;
+        }
+
+        /* 左边内容扩展比例为4。 */
+        #main-content-left {
+            flex: 4;
+            margin-right: 1px;
+            padding: 12px;
+        }
+
+        /* 本周推荐、最近新书、最近促销的内容设为伸缩盒，按行显示，不能换行。 */
+        .content {
+            display: flex;
+            flex-flow: row nowrap;
+            margin-bottom: 10px;
+        }
+
+        /* 设置本周推荐、最近新书、最近促销内容单元为包含块。 */
+        .content-item {
+            position: relative;
+            box-sizing: border-box;
+            padding: 0 2px;
+        }
+
+        /* 设置本周推荐、最近新书、最近促销内容单元的显示内容为伸缩盒，按列显示，设为包含块。 */
+        .description,
+        .recommend-description,
+        .new-description {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            position: relative;
+        }
+
+        /* 本周推荐、最近新书、最近促销内容单元的显示内容里的单价信息靠左对齐。 */
+        .description span,
+        .recommend-description span,
+        .new-description span {
+            align-self: flex-start;
+        }
+
+        /* 右边边栏扩展比例为1。 */
+        aside {
+            flex: 1;
+            padding: 12px;
+        }
+
+        /* 关于书店设为伸缩盒，按行显示，可以换行，这样文字显示在下1行。 */
+        #about .content {
+            flex-flow: row wrap;
+        }
+
+        /* 页脚设为伸缩盒，内容单元按行显示。 */
+        footer {
+            display: flex;
+            flex-flow: row wrap;
+            min-height: 100px;
+            align-items: flex-start;
+            padding-top: 20px;
+        }
+
+        /* 页脚内容单元的显示内容设为伸缩盒，按列显示。 */
+        footer .col {
+            flex: 1;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+
+        /* 版权信息设为伸缩盒，内容单元按列显示。 */
+        #copyright {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+        }
+
+        #copyright img {
+            max-width: 80px;
+        }
+
+        /* 图书分类 category.html */
+        .short ul {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+        .short ul li {
+            padding: 6px 12px;
+        }
+
+        .icon-sort1:before {
+            content: "\f00a";
+        }
+
+        .icon-sort2:before {
+            content: "\f00b";
+        }
+
+        .book {
+            border: 1px solid hsl(85, 55%, 50%);
+            padding: 12px;
+            margin: 6px 0px;
+        }
+
+        .book,
+        .book-body {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        .book-left {
+            flex: 1;
+        }
+
+        .book-body {
+            flex: 2;
+        }
+
+        .col1 {
+            flex: 2;
+            height: 100%;
+            margin: 0px 12px;
+            display: flex;
+            flex-flow: column;
+        }
+
+        .col2 {
+            flex: 1;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .col1 h3,
+        .col1 h4,
+        .col1 h5 {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .col1 h4 {
+            background-color: hsla(85, 55%, 50%, 0.4);
+            color: hsl(150, 40%, 30%);
+            padding: 6px;
+        }
+
+        .col2 .btn-cart {
+            background-color: hsl(150, 40%, 30%);
+            color: hsl(0, 100%, 100%);
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .col2 .btn-cart .icon-cart {
+            color: hsl(0, 100%, 100%);
+        }
+
+        .icon-star:before {
+            content: "\f005";
+        }
+
+        .icon-star {
+            font-size: 1rem;
+            color: hsl(40, 95%, 70%)
+        }
+
+        .checkbox,
+        .rating {
+            margin: 12px;
+        }
+
+        .checkbox li,
+        .rating li {
+            margin: 6px 0px;
+        }
+
+        .pagination {
+            display: flex;
+            flex-flow: row nowrap;
+            margin: 6px 0px;
+        }
+
+        .pagination li {
+            margin: 1px;
+            background-color: hsla(85, 55%, 50%, 0.4);
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #browser {
+            margin-top: 18px;
+        }
+
+        #browser .content {
+            margin-top: 6px;
+        }
+
+        .styled:checked {
+            outline: hsl(85, 55%, 50%) 1px solid;
+        }
+
+        .styled:checked+label {
+            color: hsl(85, 55%, 50%);
+        }
+
+        /* 屏幕宽度小于等于720px逻辑分辨率 */
+        @media screen and (max-width: 720px) {
+            .book-body {
+                flex-flow: column wrap;
+            }
+
+            .book-left img {
+                height: 50%;
+            }
+        }
+
+        /* 屏幕宽度小于等于360px逻辑分辨率 */
+        @media screen and (max-width: 360px) {
+            .book {
+                flex-flow: column wrap;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -68,13 +404,13 @@
                         <li><a href="#.">人工智能</a></li>
                         <li><a href="#.">网页制作</a></li>
                         <li><a href="#.">图形图像</a></li>
-                        
+
                     </ul>
                 </li>
                 <li><a href="ebook.html">电子书</a></li>
                 <li><a href="contact.html">客户服务</a></li>
                 <li><a href="about.html">关于我们</a></li>
-                
+
             </ul>
         </nav>
     </div>
@@ -99,7 +435,8 @@
                                 <option>按价格排序</option>
                             </select>
                         </li>
-                        <li> <a href="#."><span class="icon-sort1"></span></a> <a href="#."><span class="icon-sort2"></span></a> </li>
+                        <li> <a href="#."><span class="icon-sort1"></span></a> <a href="#."><span
+                                    class="icon-sort2"></span></a> </li>
                     </ul>
                 </div>
                 <div class="list">
@@ -124,8 +461,8 @@
                                 <div>出版社：清华大学出版社</div>
                                 <a href="#." class="btn-cart"><span class="icon-cart"></span>加入购物车</a>
                                 <div><span class="icon-star"></span><span class="icon-star"></span><span
-                                                        class="icon-star"></span><span class="icon-star"></span><span
-                                                                        class="icon-star"></span>&nbsp;&nbsp;5 评论</div>
+                                        class="icon-star"></span><span class="icon-star"></span><span
+                                        class="icon-star"></span>&nbsp;&nbsp;5 评论</div>
                             </div>
                         </div>
                     </div>
@@ -149,8 +486,8 @@
                                 <div>出版社：机械工业出版社</div>
                                 <a href="#." class="btn-cart"><span class="icon-cart"></span>加入购物车</a>
                                 <div><span class="icon-star"></span><span class="icon-star"></span><span
-                                                        class="icon-star"></span><span class="icon-star"></span><span
-                                                                        class="icon-star"></span>&nbsp;&nbsp;5 评论</div>
+                                        class="icon-star"></span><span class="icon-star"></span><span
+                                        class="icon-star"></span>&nbsp;&nbsp;5 评论</div>
                             </div>
                         </div>
                     </div>
@@ -174,8 +511,8 @@
                                 <div>出版社：机械工业出版社</div>
                                 <a href="#." class="btn-cart"><span class="icon-cart"></span>加入购物车</a>
                                 <div><span class="icon-star"></span><span class="icon-star"></span><span
-                                                        class="icon-star"></span><span class="icon-star"></span><span
-                                                                        class="icon-star"></span>&nbsp;&nbsp;5 评论</div>
+                                        class="icon-star"></span><span class="icon-star"></span><span
+                                        class="icon-star"></span>&nbsp;&nbsp;5 评论</div>
                             </div>
                         </div>
                     </div>
@@ -188,7 +525,7 @@
                     <li><a href="#.">&gt;</a></li>
                 </ul>
                 <section id="browser">
-                        <h3>最近浏览</h3>
+                    <h3>最近浏览</h3>
                     <div class="content">
                         <div class="content-item">
                             <span class="mark">新</span>
