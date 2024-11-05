@@ -83,3 +83,8 @@ The source code of this website was referenced from the book
 ### version 6.6.0
 
 1. import CSS style for category.html.
+
+*2024.11.05*
+### version 10.6.0
+
+1. import CSS style for index.html(using flex and grid).
