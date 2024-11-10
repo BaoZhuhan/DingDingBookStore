@@ -1,6 +1,13 @@
 * {
     padding: 0px;
     margin: 0px;
+    font-family: "微软雅黑",sans-serif;
+    color: hsl(150, 40%, 25%);
+    list-style-type: none;
+}
+
+p {
+    text-indent: 2rem;
 }
 
 .center {
@@ -28,17 +35,61 @@ img {
 }
 
 /* 页眉 */
+#sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+.full-width {
+    background-color: hsl(85, 60%, 60%);
+}
+
+#search {
+    width: 80%;
+    min-width: 320px;
+    height: 100%;
+}
+
+#search form {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#search input[type = "search"] {
+    width: 100%;
+    background-color: hsl(0, 100%, 100%);
+    font-size: 1.1rem;
+    border: 1px solid hsl(0, 100%, 100%);
+    height: 40%;
+}
+
+#search input[type = "submit"] {
+    background-color: hsl(85, 55%, 50%);
+    font-size: 1.1rem;
+    border: 1px solid hsl(0, 100%, 100%);
+    padding: 0 18px;
+    color: hsl(40, 95%, 70%);
+    height: 40%;
+}
+
 #page-top {
     display: grid;
     grid-template-columns: repeat(5,1fr);
     grid-template-rows: 100px;
     grid-template-areas: "lg sr sr sr cr";
 }
+
 #logo {
     justify-self: center;
     align-self: center;
     grid-area: lg;
 }
+
 #search {
     justify-self: center;
     align-self: center;
@@ -53,6 +104,7 @@ img {
 nav {
     border-bottom: 1px solid hsl(0, 50%, 100%);
     border-top: 1px solid hsl(0, 50%, 100%);
+    background-color: hsl(85, 80%, 90%);
 }
 
 /* 内容 */
@@ -61,9 +113,12 @@ nav {
     display: grid;
     grid-template-columns: repeat(5,1fr);
 }
+
 #classify {
     padding: 12px 12px 0 12px;
+    background-color: hsla(85,60%,60%,0.1);
 }
+
 #classify ul ul {
     display: flex;
     flex-flow: row wrap;
@@ -74,6 +129,31 @@ nav {
 #banner {
     grid-column-end: span 3;
     margin: 0px 1px;
+    background-color: hsla(85,60%,60%,0.1);
+}
+#banner ld{
+    display: flex;
+    flex-flow: column;
+}
+#banner dt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 1;
+}
+#banner dt a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    padding: 0 0 1px 0;
+    margin: 0 5x;
+    background-color: hsl(85,55%,50%);
+    color: hsl(0,0%,100%);
+    text-decoration: none;
+    font-size: 0.8rem;
 }
 #user {
     display: flex;
@@ -81,6 +161,42 @@ nav {
     align-items: center;
     justify-content: space-evenly;
     margin-bottom: 12px;
+}
+
+#user-news {
+    background-color: hsla(85,60%,60%,0.1);
+    padding: 12px;
+}
+
+#user div{
+    line-height: 3rem;
+}
+#date-time {
+    font-size: 0.9rem;
+}
+
+#user #btn-new,#user #btn-vip {
+    background-color: hsl(0,100%,50%);
+    color: hsl(0,100%,100%);
+    padding: 3px 12px;
+    font-size: 0.8rem;
+    border-radius: 50%;
+}
+#news h4 {
+    text-align: center;
+    background-color: hsl(85, 55%, 50%);
+    color: hsl(0, 100%, 100%);
+    padding: 3px 0px;
+    margin: 12px 0px;
+}
+
+#news li {
+    list-style-image: url(../images/bullet.png);
+    list-style-position: inside;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 240px;
+    white-space: nowrap;
 }
 
 /* 主要内容 */
@@ -93,6 +209,55 @@ nav {
     flex: 4;
     margin-right: 1px;
     padding: 12px;
+    background-color: hsla(85, 60%, 60%, 0.1);
+}
+.mark{
+    background-color: hsl(150, 40%, 30%);
+    color: hsl(0,100%,100%);
+    position: absolute;
+    border-radius: 50%;
+    min-width: 35px;
+    font-size: 1rem;
+    text-align: center;
+    padding-top: 6px;
+    padding-left: 2px;
+    box-sizing: border-box;
+    z-index: 1;
+    top: 5px;
+    left: 5px;
+}
+.mark1{
+    background-color: hsl(0,100%,50%);
+    color: hsl(0, 100%, 100%);
+    position: absolute;
+    border-radius: 50%;
+    min-width: 36px;
+    min-height: 35px;
+    font-size: 1rem;
+    text-align: center;
+    padding-top: 6px;
+    padding-left: 2px;
+    box-sizing: border-box;
+    z-index: 1;
+    top: 5px;
+    left: 5px;
+}
+.description,.recommend-description,.new-description {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    position: relative;
+    padding: 5px;
+}
+.description h3,.recommend-description h3, .new-description h3{
+    margin: 10px 0px;
+    text-align: center;
+}
+.description span,.recommend-description span,.new-description span {
+    align-self: flex-start;
+}
+aside {
+    background-color: hsla(85, 60%, 60%, 0.1);
 }
 .content {
     display: flex;
@@ -137,6 +302,8 @@ footer .col{
     justify-content: center;
     align-items: center;
     flex-flow: column;
+    background-color: hsla(85, 60%, 60%, 0.1);
+    padding: 18px 0px;
 }
 #copyright img{
     max-width: 80px;
