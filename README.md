@@ -88,3 +88,8 @@ The source code of this website was referenced from the book
 ### version 10.6.0
 
 1. import CSS style for index.html(using flex and grid).
+
+*2024.11.10*
+### version 11.6.0
+1. Update CSS style for index.html.
+2. import CSS style for cart.html.
