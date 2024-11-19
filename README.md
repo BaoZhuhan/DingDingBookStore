@@ -93,3 +93,7 @@ The source code of this website was referenced from the book
 ### version 11.6.0
 1. Update CSS style for index.html.
 2. import CSS style for cart.html.
+
+*2024.11.19*
+### version 13.0.0
+1. Final Update.
