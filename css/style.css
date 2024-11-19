@@ -1,310 +1,394 @@
-* {
-    padding: 0px;
-    margin: 0px;
-    font-family: "微软雅黑",sans-serif;
-    color: hsl(150, 40%, 25%);
-    list-style-type: none;
-}
+/* Chapter10 */
+/* 公共 */
+/* 清除所有元素默认的内、外边距。*/
+*{ padding: 0px; margin: 0px; } 
+/* 目前基于安卓的移动设备逻辑分辨率最小宽度为320px。margin: 0 auto将整个页面内容自动居中。*/
+.center { width:100%; max-width:1280px; min-width:320px; margin: 0 auto; } 
+img { width: 100%; height: 100%; border: 0px;} 
+.full-width { width: 100%; }
 
-p {
-    text-indent: 2rem;
-}
-
-.center {
-    width: 100%;
-    max-width: 1280px;
-    min-width: 320px;
-    margin: 0 auto;
-}
-
-img {
-    width: 100%;
-    height: 100%;
-    border: 0px;
-}
-
-.full-width {
-    width: 100%;
-}
-
+/* 布局 */
 /* 顶部广告 */
+#top-advert a {display: flex; flex-flow: row nowrap; } 
 
-#top-advert a{
-    display: flex;
-    flex-flow: row nowrap;
-}
+/* 页眉采用网格布局，网格模板区域定位，站内搜索占3列。 */
+#page-top { display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows:100px; grid-template-areas: "lg sr sr sr cr";} 
+/* logo网格项目内容居中。 */
+#logo {justify-self:center;align-self:center; grid-area: lg;} 
+/* 站内搜索网格项目内容居中。 */
+#search { justify-self:center; align-self:center; grid-area: sr; } 
+/* 购物车网格项目内容居中。 */
+#cart { align-self: center; justify-self: center; grid-area: cr; }
 
-/* 页眉 */
-#sticky {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    width: 100%;
-}
-
-.full-width {
-    background-color: hsl(85, 60%, 60%);
-}
-
-#search {
-    width: 80%;
-    min-width: 320px;
-    height: 100%;
-}
-
-#search form {
-    display: flex;
-    flex-flow: row nowrap;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-}
-
-#search input[type = "search"] {
-    width: 100%;
-    background-color: hsl(0, 100%, 100%);
-    font-size: 1.1rem;
-    border: 1px solid hsl(0, 100%, 100%);
-    height: 40%;
-}
-
-#search input[type = "submit"] {
-    background-color: hsl(85, 55%, 50%);
-    font-size: 1.1rem;
-    border: 1px solid hsl(0, 100%, 100%);
-    padding: 0 18px;
-    color: hsl(40, 95%, 70%);
-    height: 40%;
-}
-
-#page-top {
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    grid-template-rows: 100px;
-    grid-template-areas: "lg sr sr sr cr";
-}
-
-#logo {
-    justify-self: center;
-    align-self: center;
-    grid-area: lg;
-}
-
-#search {
-    justify-self: center;
-    align-self: center;
-    grid-area: sr;
-}
-#cart {
-    align-self: center;
-    justify-self: center;
-    grid-area: cr;
-}
 /* 导航菜单 */
-nav {
-    border-bottom: 1px solid hsl(0, 50%, 100%);
-    border-top: 1px solid hsl(0, 50%, 100%);
-    background-color: hsl(85, 80%, 90%);
-}
+nav {border-bottom: 1px solid hsl(0, 50%, 100%); border-top: 1px solid hsl(0, 50%, 100%); } 
 
-/* 内容 */
+/* 内容顶部采用网格布局，网格线定位。 */
+#main-content-top { display: grid; grid-template-columns: repeat(5, 1fr); }  
+/* 图书分类列表的子列表设为伸缩盒，按行显示。一般情况下内外边距理想的视觉距离是12px。 */
+#classify { padding: 12px 12px 0 12px; } 
+#classify ul ul { display: flex; flex-flow: row wrap; } 
+#classify ul ul li { margin:2px; } 
+/* 横幅广告占3列。 */
+#banner { grid-column-end: span 3; margin: 0px 1px; } 
+/* 用户部分设为伸缩盒，按列显示。 */
+#user { display: flex; flex-flow: column wrap; align-items: center; justify-content: space-evenly; margin-bottom: 12px;} 
+/* 主要内容设为伸缩盒，按行显示。 */
+#main-content { display: flex; flex-flow: row wrap; margin: 1px 0px; } 
+/* 左边内容扩展比例为4。 */
+#main-content-left { flex: 4; margin-right: 1px; padding: 12px; } 
+/* 本周推荐、最近新书、最近促销的内容设为伸缩盒，按行显示，不能换行。 */
+.content { display: flex; flex-flow: row nowrap; margin-bottom: 10px;} 
+/* 设置本周推荐、最近新书、最近促销内容单元为包含块。 */
+.content-item{ position: relative; box-sizing: border-box; padding: 0 2px; } 
+/* 设置本周推荐、最近新书、最近促销内容单元的显示内容为伸缩盒，按列显示，设为包含块。 */
+.description,.recommend-description,.new-description { display: flex; flex-flow: column; align-items: center; position: relative; } 
+/* 本周推荐、最近新书、最近促销内容单元的显示内容里的单价信息靠左对齐。 */
+.description span,.recommend-description span,.new-description span{ align-self: flex-start; }
+/* 右边边栏扩展比例为1。 */
+aside { flex: 1; padding: 12px; } 
+/* 关于书店设为伸缩盒，按行显示，可以换行，这样文字显示在下1行。 */
+#about .content{flex-flow: row wrap;}
+
+/* 页脚设为伸缩盒，内容单元按行显示。 */
+footer {display: flex;flex-flow:row wrap;min-height: 100px;align-items: flex-start; padding-top: 20px;} 
+/* 页脚内容单元的显示内容设为伸缩盒，按列显示。 */
+footer .col { flex: 1;display: flex;flex-flow: column; align-items: center;} 
+/* 版权信息设为伸缩盒，内容单元按列显示。 */
+#copyright{display: flex;justify-content: center;align-items: center;flex-flow: column; }
+#copyright img{max-width: 80px;} 
+
+/* Chapter11 */
+/* 文本 */
+* { font-family:"微软雅黑", sans-serif; color: hsl(150, 40%, 25%); list-style-type: none; } 
+p { text-indent: 2rem;} 
+
+/* 页眉和导航菜单粘性定位，位于页面顶部。 */
+#sticky{position: sticky;top:0;z-index: 100; width: 100%;}
+/* 页眉 */
+/* 设置.full-width元素整个宽度背景颜色。 */
+.full-width { background-color: hsl(85, 60%, 60%); } 
+/* 站内搜索外观 */
+#search {width:80%; min-width:320px; height: 100%; }
+#search form{display: flex; flex-flow: row nowrap; height: 100%; justify-content: center;align-items: center; }
+#search input[type="search"] { width: 100%; }
+#search input[type="search"] { background-color: hsl(0,100%,100%); font-size:1.1rem; border: 1px solid hsl(0,100%,100%); height:40%;} 
+#search input[type="submit"] { background-color: hsl(85, 55%, 50%); font-size:1.1rem; border:1px solid hsl(0,100%,100%); padding: 0 18px; color:hsl(40,95%,70%); height:40%;} 
+/* 导航菜单 */
+nav { background-color: hsl(85, 80%, 90%);} 
+
 /* 内容顶部 */
-#main-content-top {
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-}
-
-#classify {
-    padding: 12px 12px 0 12px;
-    background-color: hsla(85,60%,60%,0.1);
-}
-
-#classify ul ul {
-    display: flex;
-    flex-flow: row wrap;
-}
-#classify ul ul li {
-    margin: 2px;
-}
-#banner {
-    grid-column-end: span 3;
-    margin: 0px 1px;
-    background-color: hsla(85,60%,60%,0.1);
-}
-#banner ld{
-    display: flex;
-    flex-flow: column;
-}
-#banner dt {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    order: 1;
-}
-#banner dt a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    padding: 0 0 1px 0;
-    margin: 0 5x;
-    background-color: hsl(85,55%,50%);
-    color: hsl(0,0%,100%);
-    text-decoration: none;
-    font-size: 0.8rem;
-}
-#user {
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-bottom: 12px;
-}
-
-#user-news {
-    background-color: hsla(85,60%,60%,0.1);
-    padding: 12px;
-}
-
-#user div{
-    line-height: 3rem;
-}
-#date-time {
-    font-size: 0.9rem;
-}
-
-#user #btn-new,#user #btn-vip {
-    background-color: hsl(0,100%,50%);
-    color: hsl(0,100%,100%);
-    padding: 3px 12px;
-    font-size: 0.8rem;
-    border-radius: 50%;
-}
-#news h4 {
-    text-align: center;
-    background-color: hsl(85, 55%, 50%);
-    color: hsl(0, 100%, 100%);
-    padding: 3px 0px;
-    margin: 12px 0px;
-}
-
-#news li {
-    list-style-image: url(../images/bullet.png);
-    list-style-position: inside;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 240px;
-    white-space: nowrap;
-}
+/* 图书分类 */
+#classify { background-color: hsla(85, 60%, 60%,0.1);} 
+/* 横幅广告外观 */
+#banner { background-color: hsla(85, 60%, 60%,0.1);} 
+#banner dl{display: flex;flex-flow: column;}
+/* 设置定义列表项dl里的dt在下面显示，超链接外观为圆形。 */
+#banner dt { display: flex; justify-content: center; align-items: center; order: 1; } 
+#banner dt a { display: flex; justify-content: center; align-items: center; width:24px; height:24px; border-radius:50%;padding: 0 0 1px 0; margin:0 5px; background-color:hsl(85, 55%, 50%); color:hsl(0,0%,100%); text-decoration:none; font-size:0.8rem; } 
+/* 用户新闻外观 */
+#user-news { background-color: hsla(85, 60%, 60%,0.1); padding:12px;} 
+#user div{line-height: 3rem;}
+#date-time{font-size: 0.9rem;}
+/* 设置超链接新人福利和VIP会员外观 */
+#user #btn-new,#user #btn-vip { background-color: hsl(0,100%,50%); color: hsl(0,100%,100%);padding: 3px 12px; font-size: 0.8rem; border-radius: 50%; } 
+#news h4 { text-align: center; background-color: hsl(85, 55%, 50%); color: hsl(0,100%,100%); padding: 3px 0px; margin: 12px 0px;} 
+/* 设置新闻列表项内容溢出部分不显示，溢出部分用省略号替代显示。 */
+#news li { list-style-image: url(../images/bullet.png); list-style-position: inside;overflow: hidden; text-overflow: ellipsis;max-width: 240px;white-space: nowrap; } 
 
 /* 主要内容 */
-#main-content {
-    display: flex;
-    flex-flow: row wrap;
-    margin: 1px 0px;
+/* 左边内容 */
+#main-content-left { background-color: hsla(85, 60%, 60%,0.1); } 
+/* 本周推荐、最近新书、最近促销外观 */
+/* 最近新书标志绝对定位在左上角 */
+.mark{background-color: hsl(150, 40%, 30%);color: hsl(0,100%,100%);position: absolute;border-radius: 50%;min-width: 36px; min-height: 35px;font-size: 1rem; text-align: center;padding-top: 6px;padding-left: 2px;box-sizing: border-box;z-index: 1;top:5px;left:5px;}
+/* 最近促销标志绝对定位在左上角。 */
+.mark1{background-color: hsl(0,100%,50%);color: hsl(0,100%,100%);position: absolute;border-radius: 50%;min-width: 36px; min-height: 35px;font-size: 1rem; text-align: center;padding-top: 6px;padding-left: 2px;box-sizing: border-box;z-index: 1;top:5px;left:5px;}
+/* 本周推荐、最近新书、最近促销单元内容按列显示。 */
+.description,.recommend-description,.new-description { display: flex; flex-flow: column; align-items: center;position: relative;padding: 5px;} 
+.description h3,.recommend-description h3,.new-description h3{margin: 10px 0px;text-align: center;}
+.description span,.recommend-description span,.new-description span{ align-self: flex-start; } 
+/* 右边边栏 */
+aside { background-color: hsla(85, 60%, 60%,0.1); }
+/* 版权信息背景色 */ 
+#copyright{background-color: hsla(85, 60%, 60%,0.1);padding: 18px 0px;}
+
+/* Chapter12 */
+/* 水平菜单 */
+nav ul { display: flex; flex-flow: row wrap;} 
+/* 垂直菜单 */
+/* nav ul { display: flex; flex-flow: column wrap; min-width: 100%;}  */
+/* 5个菜单项宽度各占20%，共100%。 */
+nav ul li { width: 20%; }
+nav ul a { display: flex; align-items: center; justify-content: center; text-decoration: none; font-size:110%; font-weight: normal; margin: 0 1px;padding: 5% 0;} 
+nav ul a:hover { background-color: hsl(85, 55%, 50%); color: hsl(0,0%,100%); } 
+/* 多级菜单 */
+nav ul li { position: relative; } 
+nav ul ul { visibility: hidden; position: absolute; background:hsl(85, 55%, 50%); width: 100%;} 
+nav ul ul li{width: 100%;}
+nav ul ul li a{border-top:1px solid hsl(0,0%,100%) ;}
+nav ul li:hover ul { visibility: visible; z-index: 100; }
+
+/* 栏目图标字体 */
+@font-face { font-family: 'FontAwesome'; src: url('../fonts/fontawesome-webfont.woff'); src: url('../fonts/fontawesome-webfont.eot'), url('../fonts/fontawesome-webfont.woff2'), url('../fonts/fontawesome-webfont.ttf'), url('../fonts/fontawesome-webfont.svg'); font-weight: normal; font-style: normal; } 
+/* 设置栏目标题图标样式 */
+[class^="icon"] { font-family: FontAwesome; font-size: 1.5rem; display: flex; align-items: center; float: left; margin-right: 0.5rem; font-weight: normal; color:hsl(85, 55%, 40%); } 
+/* 本周推荐标题图标 */
+.icon-book:before { content: "\f02d"; } 
+/* 最近新书标题图标 */
+.icon-new:before { content: "\f044"; } 
+/* 图书分类标题图标 */
+.icon-classify:before { content: "\f022"; } 
+/* 最近促销标题图标 */
+.icon-sale:before { content: "\f295"; } 
+/* 畅销图书标题图标 */
+.icon-sell:before { content: "\f073"; } 
+/* 合作伙伴标题图标 */
+.icon-partner:before { content: "\f2b5"; } 
+/* 关于书店标题图标 */
+.icon-about:before {content: "\f143";}
+/* 客户服务标题图标，在contact.html页面上。 */
+.icon-contact:before { content: "\f199"; } 
+/* 购物车标题图标 */
+.icon-cart:before { content: "\f07a"; } 
+.title { border-bottom: hsl(85, 55%, 50%) solid 1px; padding-bottom: 1px; margin-bottom: 0.6rem; display: flex; justify-content: space-between; } 
+
+/* 通用超链接伪类 */
+a { text-decoration: none; } 
+a:hover{color: hsl(85, 55%, 50%);}
+/* 图书分类和合作伙伴超连接伪类 */
+#partner{margin: 20px 0px;}
+#classify li a,#partner li a { text-decoration:none; color: hsl(150, 40%, 30%); } 
+#classify a:hover,#partner a:hover { text-decoration:none; color:hsl(85, 55%, 50%); } 
+#classify ul{ margin: 0.4rem; } 
+
+/* 本周推荐、最近新书、最近促销单元内容购物车超链接伪类 */
+.main-content-cart .icon-cart{ font-size: 1rem; } 
+.main-content-cart { align-self: flex-end; background-color:hsla(85, 55%, 50%,0.4); border-radius: 50%;padding:6px 0 6px 6px;} 
+.main-content-cart:hover{background-color:hsl(150, 40%, 30%);}
+.main-content-cart:hover .icon-cart{color: hsl(0,0%,100%);}
+
+/* 畅销图书样式 */
+#best-selling { margin-bottom: 10px; } 
+#best-selling ul { margin-top: 1rem; } 
+#best-selling li:before { content: counter(listxh); background:hsl(85, 55%, 50%);; padding: 2px 6px; color: hsl(0,0%,100%); margin-right: 5px; vertical-align: top; float: left; } 
+/* 内容较多时，溢出部分隐藏，不换行，溢出部分用省略号替代。*/
+#best-selling li { counter-increment: listxh;overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin-top: 8px; border-bottom:hsl(0,0%,80%) dashed 1px; max-width: 230px; } 
+.p-img img { width:80px; height:80px; } 
+#best-selling .curr .p-img { float: left; } 
+#best-selling .curr .p-name strong { color:hsl(0,100%,50%); font-size: 1rem; } 
+#best-selling .curr .p-name del { font-size: 1rem; } 
+#best-selling .curr { display: none; } 
+#best-selling a { color: hsl(0,0%,0%); text-decoration: none; font-size: 1rem; } 
+#best-selling li:hover { text-shadow: 1px 4px 4px hsl(85, 55%, 50%); white-space: normal; } 
+#best-selling li:hover .selling { display:none; } 
+#best-selling li:hover .curr { display:block; } 
+
+/* Chapter13 */
+/* 页眉区购物车样式 */
+.cart-head .icon-cart{font-size: 2rem; margin:5px 0px;}
+#cart-position{ position: relative; } 
+#cart li:hover ul { display:block; } 
+#cart .cart-head{ text-decoration: none;} 
+#cart .cart-head sup{color: hsl(0,100%,50%);background-color: hsl(0,100%,100%); border-radius: 50%;padding: 1px 6px 2px 5px;}
+#cart .cart-head:hover sup {color: hsl(150, 40%, 30%);} 
+#dropdown-cart { display:none; z-index:100; background-color: hsl(0, 50%, 100%); border:1px solid hsl(85, 55%, 50%); position: absolute; width: 400%; min-width: 180px; max-width: 200px; left: -175%; top:160%; padding:10px 0px; font-size: 1rem; } 
+#dropdown-cart li { display: flex; flex-flow: row nowrap; padding:0px 6px; } 
+#dropdown-cart li .cart-thumb { flex: 1; } 
+#dropdown-cart li .cart-tittle { flex: 2; } 
+#dropdown-cart #btn-cart { justify-content: center; } 
+#dropdown-cart #btn-cart a{ background-color:hsl(85, 55%, 50%); color: hsl(0,100%,100%); padding: 6px 12px; font-size: 0.8rem; border-radius: 100%;transition:background-color linear 0.5s; } 
+#dropdown-cart #btn-cart a:hover{background-color:hsl(0,100%,50%);}
+
+/* 导航菜单背景过渡 */
+nav ul a { transition:background-color 0.5s linear; } 
+/* 用户栏目超链接新人福利和VIP会员背景过渡 */
+#user #btn-new,#user #btn-vip { transition:background-color linear 0.5s;} 
+#user #btn-new:hover,#user #btn-vip:hover { background-color: hsl(85, 55%, 50%); } 
+/* 本周推荐、最近新书、最近促销单元内容购物车超链接背景过渡 */
+.main-content-cart { transition:background-color linear 0.5s;} 
+/* 畅销图书列表项文字阴影过渡 */
+#best-selling li { transition:text-shadow 1s linear;} 
+
+/* 本周推荐动画效果 */
+.recommend-description{perspective: 800px;}
+.recommend-description .description-text{height: 100%;width: 100%; ;position: absolute;z-index: -1;visibility: hidden;transition:background linear 1s,transform linear 1s;transform-origin: center bottom;transform: rotateX(90deg);}
+.recommend-description .description-text p{color:hsl(0,100%,100%); padding: 18px 12px 18px 14px; font-size: 1rem;}
+.recommend-description:hover img{visibility: hidden;}
+.recommend-description:hover .description-text{visibility: visible;background-color: hsl(85, 55%, 50%);transform: rotateX(0deg)}
+/* 最近新书动画效果 */
+.new-description{perspective: 800px;}
+.new-description:hover img{transform: rotateY(360deg);transition: 2s;}
+/* 最近促销边框过渡 */
+.description:hover { border: 1px solid hsl(85, 55%, 50%); } 
+/* 本周推荐、最近新书、最近促销栏目查看更多超连接背景滑动效果 */
+.title-cover{position: absolute;top:-100%; background-color:hsla(150, 40%, 30%,0.2);width: 100%;height: 100%;}
+.title a { text-decoration:none; background: hsl(85, 55%, 50%); color: hsl(0,0%,100%); min-width:120px; display: flex; justify-content: center; height: 30px; align-items: center; padding-bottom: 2px; position: relative;overflow: hidden; } 
+.title a:hover .title-cover{transition:0.5s linear;transform: translateY(100%);} 
+
+/* 响应式设计适应移动设备 */
+/* 屏幕宽度小于等于720px逻辑分辨率 */
+@media screen and (max-width: 720px){
+   /* 页眉显示2行，logo和购物车占1行，站内搜索占1行。 */
+   #page-top {
+      grid-template-areas: 
+      "lg lg lg cr cr"
+      "sr sr sr sr sr"; }
+   /* 站内搜索单独显示1行高度为100%。 */
+   #search input[type="search"], #search input[type="submit"]{ height:100%;} 
+   #search {width:100%;}   
+   /* 内容顶部显示2行，图书分类和用户新闻占1行，横幅广告占1行。 */
+   #main-content-top { grid-template-columns: repeat(2, 1fr);grid-template-rows: repeat(2,minmax(50px,auto)); } 
+   #classify{grid-row: 1/2; grid-column: 1/2;}
+   #user-news{grid-row: 1/2; grid-column: 2/3;}
+   #banner { grid-row: 2/3; grid-column: 1/3; }
+   /* 设置本周推荐、最近新书、最近促销内容单元可以换行，1行显示2项。 */
+   .content{flex-flow: row wrap;}
+   .content-item{max-width: 50%;}
 }
-#main-content-left {
-    flex: 4;
-    margin-right: 1px;
-    padding: 12px;
-    background-color: hsla(85, 60%, 60%, 0.1);
+
+/* 屏幕宽度小于等于360px逻辑分辨率 */
+@media screen and (max-width: 360px){
+   /* 顶部广告不显示。 */
+   #top-advert{display: none;}
+   /* 页眉显示3行，logo、购物车、站内搜索各占1行。 */
+   #page-top {grid-template-columns: 1fr;
+      grid-template-areas: 
+      "lg"
+      "cr"
+      "sr"; }
+   /* 菜单项字号正常大小，显示在1行上。 */
+   nav ul a{font-size: 100%;}
+   /* 页眉和导航菜单不再固定页面顶部。 */
+   #sticky{position:relative;}
+   /* 内容顶部显示3行，图书分类、用户新闻、横幅广告各占1行。 */
+   #main-content-top { grid-template-columns: repeat(1, 1fr);grid-template-rows: repeat(3,minmax(50px,auto)); } 
+   #classify{grid-row: 1/2; grid-column: 1/2; }
+   #user-news{grid-row: 2/3; grid-column: 1/2;}
+   #banner { grid-row: 3/4; grid-column: 1/2; }
+   /* 设置本周推荐、最近新书、最近促销内容单元1行显示1项。 */
+   .content-item{ max-width: 100%;}
+   #copyright{text-align: center;}
+ }
+
+ /* 屏幕宽度小于等于320px逻辑分辨率 */
+@media screen and (max-width: 320px){
+   /* 菜单项字号缩小，显示在1行上。 */
+   nav ul a{font-size: 95%;}
+ }
+
+/* Chapter14 */
+/* 面包屑导航 */
+.crumb-nav{font-size: 1rem; margin: 1px 0px;background-color: hsla(85, 60%, 60%,0.1); padding: 6px 12px;}
+.crumb-nav a{text-decoration:none;font-size: 1em;color:hsl(150, 40%, 30%); }
+.crumb-nav a:hover {color: hsl(85, 55%, 50%);}
+
+/* 图书分类 category.html */
+.short ul{display: flex;flex-flow: row nowrap;}
+.short ul li{padding: 6px 12px;}
+.icon-sort1:before {content: "\f00a";}
+.icon-sort2:before {content: "\f00b";}
+.book{border: 1px solid hsl(85, 55%, 50%); padding: 12px;margin: 6px 0px;}
+.book,.book-body{display: flex; flex-flow: row wrap;}
+.book-left{flex: 1;}
+.book-body{flex: 2;}
+.col1{flex: 2;height: 100%;margin: 0px 12px;display: flex;flex-flow: column;}
+.col2{flex: 1;display: flex;flex-flow: column;justify-content:space-around;align-items: center;}
+.col1 h3,.col1 h4,.col1 h5{text-align: center;margin-bottom: 18px;}
+.col1 h4{background-color: hsla(85, 55%, 50%,0.4);color: hsl(150, 40%, 30%); padding:6px;}
+.col2 .btn-cart{background-color: hsl(150, 40%, 30%);color: hsl(0,100%,100%);padding: 6px 12px; border-radius:20px;}
+.col2 .btn-cart .icon-cart{color: hsl(0,100%,100%);}
+.icon-star:before {content: "\f005";}
+.icon-star{font-size: 1rem;color:hsl(40,95%,70%)}
+.checkbox,.rating{margin: 12px;}
+.checkbox li,.rating li{margin: 6px 0px;}
+.pagination{display: flex;flex-flow: row nowrap;margin: 6px 0px;}
+.pagination li{margin: 1px;background-color:hsla(85, 55%, 50%,0.4) ; width: 30px;height: 30px;text-align: center;display: flex;justify-content: center; align-items: center;}
+#browser{margin-top: 18px;}
+#browser .content{margin-top: 6px;}
+.styled:checked{outline: hsl(85, 55%, 50%) 1px solid;}
+.styled:checked +label{color: hsl(85, 55%, 50%);}
+/* 屏幕宽度小于等于720px逻辑分辨率 */
+@media screen and (max-width: 720px){
+   .book-body{flex-flow: column wrap;}
+   .book-left img{height: 50%;}
 }
-.mark{
-    background-color: hsl(150, 40%, 30%);
-    color: hsl(0,100%,100%);
-    position: absolute;
-    border-radius: 50%;
-    min-width: 35px;
-    font-size: 1rem;
-    text-align: center;
-    padding-top: 6px;
-    padding-left: 2px;
-    box-sizing: border-box;
-    z-index: 1;
-    top: 5px;
-    left: 5px;
+/* 屏幕宽度小于等于360px逻辑分辨率 */
+@media screen and (max-width: 360px){
+   .book{flex-flow: column wrap;}
 }
-.mark1{
-    background-color: hsl(0,100%,50%);
-    color: hsl(0, 100%, 100%);
-    position: absolute;
-    border-radius: 50%;
-    min-width: 36px;
-    min-height: 35px;
-    font-size: 1rem;
-    text-align: center;
-    padding-top: 6px;
-    padding-left: 2px;
-    box-sizing: border-box;
-    z-index: 1;
-    top: 5px;
-    left: 5px;
+
+/* 电子书 ebook.html */
+.list ul{display: grid;grid-template-columns: repeat(3,1fr);}
+.list ul li{border: hsl(85, 55%, 50%) 1px solid;margin: 6px;}
+#ulcart{display: grid; margin: 12px 6px;}
+#ulcart div{justify-self: center;}
+#ulcart div .icon-cart{font-size: 2rem;}
+#ulcart ul{margin-top: 6px;}
+.list-title{display: flex;flex-flow: row wrap;background-color: hsl(85, 55%, 50%);}
+.list-title span{color: hsl(0,100%,100%); flex: 1; text-align: center;padding: 6px;}
+.list-record {display: flex;flex-flow: row wrap;}
+.list-record span{color: hsl(85, 55%, 50%); flex: 1; border: hsl(85, 55%, 50%) 1px solid;margin: 1px;display: flex;justify-content: center;align-items: center;}
+/* 屏幕宽度小于等于360px逻辑分辨率 */
+@media screen and (max-width: 360px){
+   .list ul{grid-template-columns: 1fr;}
+   #main-content { flex-flow: column wrap;}
 }
-.description,.recommend-description,.new-description {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    position: relative;
-    padding: 5px;
+
+/* 客户服务 contact.html*/
+.contacts{margin-top: 1rem;}
+.contacts p{padding:10px;}
+.contact-form {border:hsl(85, 55%, 50%) 1px dashed;font-size:1.1rem; margin: 0 10px;}
+.form-subtitle {background:hsl(85, 55%, 50%);color:hsl(0,0%,100%);padding:2px 5px;}
+.contact-input {width:300px;border:hsl(0,0%,80%) 1px solid;}
+.form-row {padding:2px 10px;font-size: 1rem;}
+.form-row-button {margin:5px;}
+.send {color:hsl(0,0%,100%);height:30px;width:60px;text-align:center;background-color:hsl(85, 55%, 50%);border: 0px;font-size:1rem; }
+#message{visibility: hidden;}
+#submitmessage{padding: 12px;font-size: 1rem;}
+
+/* 关于我们 about.html */
+#advantage div{display: flex;flex-flow: row wrap;margin: 12px 6px;}
+#advantage div h4{flex: 1;}
+#advantage div meter{flex: 5;}
+#about-img{margin-bottom: 12px;}
+#team{display: flex;flex-flow: row wrap;}
+#team div{width: 25%; display: flex; flex-flow: column nowrap;justify-content: center;align-items: center;}
+/* 屏幕宽度小于等于360px逻辑分辨率 */
+@media screen and (max-width: 360px){
+   #team div{width: 50%;}
 }
-.description h3,.recommend-description h3, .new-description h3{
-    margin: 10px 0px;
-    text-align: center;
+
+/* 详细内容 details.html */
+.title-bar{display: flex;flex-flow: row wrap;justify-content: flex-end;}
+.information{display: flex;flex-flow: row wrap;margin: 12px;}
+.information-cover{flex: 1; margin-right: 12px;}
+.information-title{flex: 2;}
+.information-content p{border: hsl(85, 55%, 40%) 1px solid;border-radius: 6px;margin: 12px 0px;padding: 12px;}
+.information-title h3{text-align: center; margin: 12px;}
+.information-title li{margin: 12px;}
+.information-title div{display: flex;flex-flow: row wrap;justify-content: center;}
+.information-context div{display: flex;flex-flow: row wrap;justify-content:space-between;}
+.read{background-color: hsl(85, 55%, 50%);display: block;text-align: center;border-radius: 10px; padding: 6px 36px;}
+.read:hover{color: hsl(0,100%,100%);}
+/* 屏幕宽度小于等于720px逻辑分辨率 */
+@media screen and (max-width: 720px){
+   .information{flex-flow: column wrap}
 }
-.description span,.recommend-description span,.new-description span {
-    align-self: flex-start;
-}
-aside {
-    background-color: hsla(85, 60%, 60%, 0.1);
-}
-.content {
-    display: flex;
-    flex-flow: row nowrap;
-    margin-bottom: 10px;
-}
-.content-item{
-    position: relative;
-    box-sizing: border-box;
-    padding: 0 2px;
-}
-.description, .recommend-description, .new-description {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    position: relative;
-}
-aside {
-    flex:1;
-    padding: 12px;
-}
-#about {
-    flex-flow: row wrap;
-}
-/* 页脚 */
-footer{
-    display: flex;
-    flex-flow: row wrap;
-    min-height: 100px;
-    align-items: flex-start;
-    padding-top: 20px;
-}
-footer .col{
-    flex:1;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-}
-/* 版权 */
-#copyright{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
-    background-color: hsla(85, 60%, 60%, 0.1);
-    padding: 18px 0px;
-}
-#copyright img{
-    max-width: 80px;
-}
+
+/* 购物车 cart.html */
+.cart-table h3{margin: 1rem 0;}
+/* 表格合并边框 */
+.cart-table table{font-size:1.2rem;width: 100%;border-collapse:collapse;margin: 10px 0px;}
+.cart-table tr,.cart-table td{border:1px solid hsl(85, 55%, 50%);}
+.cart-table td h4{font-size:1rem;}
+.cart-table img{width:60px;height:60px;}
+.cart-table td:first-child{text-align: center;}
+.cart-table td:nth-child(5),.cart-table td:nth-child(4),.cart-table td:nth-child(3){text-align: right;padding-right: 5px;}
+.cart-table tr:last-child a{font-size: 1.1rem;text-decoration: none;margin-left: 20px;}
+.cart-table tr:last-child a:hover{color:hsl(85, 55%, 50%); }
+/* 表格第一行和最后一行背景色 */
+.cart-table tr:first-child,.cart-table tr:last-child{line-height: 40px; text-align: center;}
+
+/* 试读 read.html */
+.read-bar h4,.read-bar h5{display: flex;justify-content: center;align-items: center;}
