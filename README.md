@@ -97,3 +97,7 @@ The source code of this website was referenced from the book
 *2024.11.19*
 ### version 13.0.0
 1. Final Update.
+
+*2024.11.25*
+### version 16.0.0
+1. Add js to update time in index.html.
