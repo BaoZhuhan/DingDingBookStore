@@ -105,3 +105,7 @@ The source code of this website was referenced from the book
 *2024.12.10*
 ### version 19.9.0
 1. Ding Ding bookstore project home page image rotating ads implementation
+
+*2024.12.10*
+### version 20.7.0
+1. Drag and drop books to the shopping cart on the book category page of Dingding Bookstore
