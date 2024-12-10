@@ -101,3 +101,7 @@ The source code of this website was referenced from the book
 *2024.11.25*
 ### version 16.0.0
 1. Add js to update time in index.html.
+
+*2024.12.10*
+### version 19.9.0
+1. Ding Ding bookstore project home page image rotating ads implementation
